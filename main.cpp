@@ -2,7 +2,7 @@
 //  main.cpp
 //  Snake
 //
-//  Created by Martin Kong and Anshul Aggarwal on 10/27/16.
+//  Created by Martin Kong on 10/27/16.
 //  Copyright © 2016 Martin Kong. All rights reserved.
 //
 
@@ -12,13 +12,6 @@
 #include <cstdlib>
 
 using namespace std;
-
-class Snake{
-    int length;
-    int direction;
-    int x;
-    int y;
-};
 
 class Map{
 public:
@@ -51,18 +44,31 @@ private:
     // 0 = empty, 1 = wall, 2 = apple
 };
 
+class Snake: public Map{
+public:
+    void createHead(){
+        
+    }
+private:
+    int length;
+    int direction;
+    int x;
+    int y;
+    Map* m;
+};
+
 void run(){
     Map* m = new Map();
     if(m->change(0, 0, 1)==0){
         cout << "works" << endl;
     }
-    //srand(time(NULL));
+    srand(time(NULL));
     m->createApple();
 }
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-    cout << "Hello, World!" << endl;
-    //run();
+    std::cout << "Hello, World!\n";
+    run();
     return 0;
 }
