@@ -2,7 +2,7 @@
 //  main.cpp
 //  Snake
 //
-//  Created by Martin Kong on 10/27/16.
+//  Created by Martin Kong and Anshul Aggarwal on 10/27/16.
 //  Copyright © 2016 Martin Kong. All rights reserved.
 //
 
@@ -56,13 +56,13 @@ void run(){
     if(m->change(0, 0, 1)==0){
         cout << "works" << endl;
     }
-    srand(time(NULL));
+    //srand(time(NULL));
     m->createApple();
 }
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-    std::cout << "Hello, World!\n";
-    run();
+    cout << "Hello, World!" << endl;
+    //run();
     return 0;
 }
