@@ -23,28 +23,25 @@ public:
         }
     }
     int change(int x, int y, int change){
-        if(x<8 && x>=0 && y<8 && y>=0){
-            arr[x][y] = change;
-            return 0;
-        }
+        arr[x][y] = change;
         return 1;
     }
-    void createApple(){
-        int x_apple = rand() % 8;
-        int y_apple = rand() % 8;
-        while(arr[x_apple][y_apple]!=0){
-            x_apple = rand() % 8;
-            y_apple = rand() % 8;
+    void createPoint(int i){
+        int x = rand() % 8;
+        int y = rand() % 8;
+        while(arr[x][y]!=0){
+            x = rand() % 8;
+            y = rand() % 8;
         }
-        arr[x_apple][y_apple] = 2;
-        cout << x_apple << " " << y_apple << endl;
+        arr[x][y] = i;
+        cout << x << " " << y << endl;
     }
 private:
     int arr[8][8];
     // 0 = empty, 1 = wall, 2 = apple
 };
 
-class Snake: public Map{
+class Snake{
 public:
     void createHead(){
         
