@@ -32,6 +32,7 @@ public:
     Snake* getSnake();
     Apple* getApple();
     bool eatApple();        // if snake eats apple, move apple with apple->change()
+    int colorAt(int x, int y);
 private:
     int xSize = 16;
     int ySize = 32;
@@ -49,7 +50,7 @@ struct Coord{
 class Snake{
 public:
     Snake(Map* m, int x, int y);
-    int move();
+    int move();             // move the snake in its current direction, check if valid
     int getLength();
     int getX();
     int getY();

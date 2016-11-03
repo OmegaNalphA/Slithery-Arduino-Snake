@@ -53,6 +53,9 @@ bool Map::eatApple(){
     }
     return false;
 }
+int Map::colorAt(int x, int y){
+    return arr[x][y];
+}
 
 Coord::Coord(int xPos, int yPos){
     x = xPos;
@@ -72,7 +75,7 @@ Snake::Snake(Map *map, int x, int y) {
 int Snake::move(){
     switch (direction) {
         case RIGHT:
-            if(yPos==m->getYSize()-1){
+            if(yPos==m->getYSize()-1 || m->colorAt(xPos, yPos+1)==1){
                 return 1;
             }
             if(grow>0){
@@ -83,10 +86,9 @@ int Snake::move(){
                 m->change(d->x, d->y, 0);
             }
             yPos += 1;
-            //m->change(xPos, yPos, 1);
             break;
         case LEFT:
-            if(yPos==0){
+            if(yPos==0 || m->colorAt(xPos, yPos-1)==1){
                 return 1;
             }
             if(grow>0){
@@ -95,10 +97,9 @@ int Snake::move(){
                 m->change(xPos, yPos, 0);
             }
             yPos -= 1;
-            //m->change(xPos, yPos, 1);
             break;
         case UP:
-            if(xPos==0){
+            if(xPos==0 || m->colorAt(xPos-1, yPos)==1){
                 return 1;
             }
             if(grow>0){
@@ -107,10 +108,9 @@ int Snake::move(){
                 m->change(xPos, yPos, 0);
             }
             xPos -= 1;
-            //m->change(xPos, yPos, 1);
             break;
         case DOWN:
-            if(xPos==m->getXSize()-1){
+            if(xPos==m->getXSize()-1 || m->colorAt(xPos+1, yPos)==1){
                 return 1;
             }
             if(grow>0){
@@ -119,7 +119,6 @@ int Snake::move(){
                 m->change(xPos, yPos, 0);
             }
             xPos += 1;
-            //m->change(xPos, yPos, 1);
             break;
         default:
             break;
@@ -131,10 +130,7 @@ int Snake::move(){
         m->getApple()->change();
         getBigger(4);
     }
-    if(yPos<=18 && xPos<=18){
-        return 0;
-    }
-    return 1;
+    return 0;
 }
 int Snake::getLength(){
     return (int)body.size();
