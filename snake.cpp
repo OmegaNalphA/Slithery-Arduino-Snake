@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include "snake.h"
+#include <cstdlib>
 
 using namespace std;
 
@@ -152,7 +153,14 @@ Apple::Apple(Map* map, int x, int y) {
     m->change(xPos, yPos, APPLE);
 }
 void Apple::change(){
-    xPos += 3;
+    srand(time(NULL));
+    xPos = rand() % xSize;
+    yPos = rand() % ySize;
+    while(m->colorAt(xPos, yPos)!=0){
+        xPos = rand() % xSize;
+        yPos = rand() % ySize;
+    }
+    //xPos += 3;
     m->change(xPos, yPos, APPLE);
 }
 int Apple::getX(){
