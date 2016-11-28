@@ -21,6 +21,72 @@ Map::Map(){
     snake = new Snake(this, 0, 0);
     apple = new Apple(this, 0, 11);
 }
+Map::gameOver(){
+	for(int i = 0; i < xSize; i++){
+		for(int j =0; j < ySize; j++){
+			arr[i][j] = ON;
+		}
+	}
+	sleep(1);
+	for(int i = 0; i < xSize; i++){
+		for(int j =0; j < ySize; j++){
+			arr[i][j] = OFF;
+		}
+	}
+	sleep(1);
+	int score = this->snake->getLength();
+	int left = score/10;
+	int right = score%10;
+	this->printScreen(left, right);
+}
+void Map::printScreen(int left, int right){
+	switch(left){
+		case 0:
+			int arrLeft[8][4]
+			arr = {(1,1,1,1)}
+			break;
+		case 1:
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		case 5:
+			break;
+		case 6:
+			break;
+		case 7:
+			break;
+		case 8:
+			break;
+		case 9:
+			break;
+	}
+	switch(right){
+		case 0:
+			break;
+		case 1:
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		case 5:
+			break;
+		case 6:
+			break;
+		case 7:
+			break;
+		case 8:
+			break;
+		case 9:
+			break;
+	}
+}
 int Map::getXSize(){
     return this->xSize;
 }

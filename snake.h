@@ -23,6 +23,8 @@ class Apple;
 class Map{
 public:
     Map();
+    void gameOver();
+    void printScreen(int left, int right);
     int getXSize();
     int getYSize();
     int change(int x, int y, int change);

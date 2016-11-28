@@ -19,6 +19,7 @@ void run(Map* m){
         m->printMap();
         cout << endl;
         if(m->move()){
+            m->gameOver();
             break;
         }
     }
