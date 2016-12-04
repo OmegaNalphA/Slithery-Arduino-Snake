@@ -9,10 +9,6 @@
 //  Copyright © 2016 Martin Kong. All rights reserved.
 //
 
-/*#include <iostream>
-
-using namespace std;*/
-//#include <queue>
 #include <Arduino.h>
 #include <QueueArray.h>
 
@@ -28,7 +24,6 @@ public:
     int getXSize();
     int getYSize();
     int change(int x, int y, int change);
-    //void createPoint(int i);
     void printMap();
     int move();
     Snake* getSnake();
@@ -82,18 +77,5 @@ private:
     int yPos;
     Map* m;
 };
-
-
-
-//void Map::createPoint(int i){
-//    int x = rand() % xSize;
-//    int y = rand() % ySize;
-//    while(arr[x][y]!=0){
-//        x = rand() % xSize;
-//        y = rand() % ySize;
-//    }
-//    arr[x][y] = i;
-//    cout << x << " " << y << endl;
-//}
 
 #endif /* snake_h */
