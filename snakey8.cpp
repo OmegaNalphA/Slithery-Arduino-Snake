@@ -6,11 +6,7 @@
 //  Copyright © 2016 Martin Kong and Anshul Aggarwal. All rights reserved.
 //
 
-//#include <stdio.h>
 #include "snakey8.h"
-/*#include <cstdlib>
-
-using namespace std;*/
 
 Map::Map(){
     for(int i=0; i<xSize; i++){
@@ -35,12 +31,6 @@ int Map::change(int x, int y, int change){
     return 1;
 }
 void Map::printMap(){
-    /*for (int i = 0; i < xSize; i++) {
-        for (int j = 0; j < ySize; j++) {
-            cout << arr[i][j];
-        }
-        cout << endl;
-    }*/
     for(int i=0; i<8; i++){
         digitalWrite(col[i], LOW);
         digitalWrite(row[i], HIGH);
